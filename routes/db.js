@@ -14,4 +14,11 @@ router.get('/', async function (req, res, next) {
   res.render('db', data);
 });
 
+router.post('/', async function (req, res, next) {
+  const { name, email, age } = req.body
+  await prisma.user.create({
+    data: { name: name, email: email, age: parseInt(age) }
+  });
+  res.redirect('/db');
+})
 module.exports = router
