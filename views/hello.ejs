@@ -1,0 +1,25 @@
+<%- include('header', title) %>
+  <p class="my-2" id="msg"><%= message %></p>
+  <form method="post" action="/hello">
+    <div class="mb-3">
+      <label for="comment" class="form-label">Message</label>
+      <input type="text" class="form-control" id="comment" name="comment" />
+    </div>
+    <button type="submit" class="btn btn-primary">送信</button>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% for(item of comments) { %>
+      <tr>
+        <td><%= item %></td>
+      </tr>
+    <% } %>
+    </tbody>
+  </table>
+<%- include('footer') %>
