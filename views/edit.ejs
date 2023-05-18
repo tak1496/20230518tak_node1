@@ -1,0 +1,19 @@
+<%- include('header', title) %>
+  <h6 class="my-3" id="msg"><%= message %></h6>
+  <form method="post" action="/db/edit">
+    <input type="hidden" name="id" id="id" value="<%= user.id %>" />
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" class="form-control" id="email" name="email" value="<%= user.email %>" />
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">Name</label>
+      <input type="number" class="form-control" id="age" name="age" value="<%= user.age %>" />
+    </div>
+    <button type="submit" class="btn btn-primary">送信</button>
+  </form>
+<%- include('footer') %>

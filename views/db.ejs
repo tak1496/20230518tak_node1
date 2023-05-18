@@ -25,6 +25,8 @@
         <th>email</th>
         <th>age</th>
         <th>update</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -35,8 +37,24 @@
         <td><%= item.email %></td>
         <td><%= item.age %></td>
         <td><%= item.updateAt %></td>
+        <th>
+          <a href="/db/edit/<%= item.id %>">編集</a>
+        </th>
+        <th>
+          <a href="#" onsubmit="false" onclick="doDelete(<%= item.id %>);">削除</a>
+        </th>
       </tr>
     <% } %>
     </tbody>
   </table>
+  <form id="delform" method="post" action=""></form>
+  <script>
+    function doDelete(id) {
+      if(window.confirm('id='+ id +' のレコードを削除しますか？')) {
+        const frm = document.querySelector('#delform');
+        frm.action = '/db/delete/'+ id;
+        frm.submit();
+      }
+    }
+  </script>
 <%- include('footer') %>
